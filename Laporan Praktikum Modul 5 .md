@@ -13,7 +13,7 @@ sebuah nilai misalnya variabel berat hanya dapat menampung satu nilai berat
 dari satu nilai maka deklarasikan variabel sebagai array, dengan format 
 penulisan tipe_data nama_variabel [banyak data].
 ## Guided
-## 1. Program Array Tiga dimensi
+## 1. Buatlah sebuah struktur dengan nama buku yang berisi judul_buku, pengarang, penerbit, tebal_halaman, harga_buku. Isi dengan nilai kemudian tampilkan. 
 ```C++
 #include <iostream>
 #include <string>
@@ -62,209 +62,168 @@ int main(){ //fungsi program utama
 	}
 ```
 ### Output
-![Screenshot 2024-06-12 082214](https://github.com/yokaroo/Praktikum-Struktur-Data-Asignment-Modul2/blob/main/Screenshot%202024-06-12%20082214.png)
+![Screenshot 2024-06-12 231558](https://github.com/yokaroo/Praktikum-Algoritma-Struktur-Data-Asignment-Modul5/blob/main/Screenshot%202024-06-12%20231558.png)
 ## Iterpretasi
-Kode program ini mendeklarasikan sebuah array 3 dimensi berukuran 2x3x3 dan meminta pengguna untuk mengisi setiap elemen array melalui input. Program menggunakan tiga loop bersarang untuk mengakses setiap elemen array dan mengisi nilainya. Setelah semua nilai diinput, program menampilkan nilai-nilai tersebut dalam dua format: pertama, dengan menunjukkan indeks setiap elemen dan nilainya, dan kedua, dengan menampilkan elemen-elemen array dalam bentuk baris dan kolom yang lebih mudah dibaca. Program kemudian mengakhiri dengan return 0, menandakan bahwa program selesai dijalankan dengan sukses.
+Program tersebut merupakan contoh implementasi struktur (struct) dalam C++, yang digunakan untuk menyimpan informasi mengenai dua buah buku. Setiap buku direpresentasikan sebagai sebuah variabel dengan tipe data `struct Buku`, yang memiliki beberapa atribut seperti judul buku, pengarang, penerbit, tebal buku, dan harga buku. Dalam program tersebut, dua variabel buku (`buku1` dan `buku2`) telah dideklarasikan dan diinisialisasi dengan nilai-nilai yang sesuai. Setelah itu, informasi dari kedua buku tersebut ditampilkan ke layar menggunakan perintah `cout`. Setelah menampilkan informasi buku pertama, program akan menampilkan informasi buku kedua. Setelah itu, program akan berakhir. Dengan menggunakan struktur, kita dapat mengelompokkan informasi yang terkait bersama-sama, sehingga memudahkan dalam pemrosesan dan manajemen data.
 
-## 2. Program Mencari Nilai Maksimal Pada Aray
+## 2. Buatlah sebuah struktur dengan skema seperti dibawah, isi dengan nilai kemudian jalankan.
+![Screenshot 2024-06-12 232207](https://github.com/yokaroo/Praktikum-Algoritma-Struktur-Data-Asignment-Modul5/blob/main/Screenshot%202024-06-12%20232207.png)
 ```C++
 #include <iostream>
+#include <string>
 using namespace std;
 
+struct hewan {
+    string nama_hewan;
+    string jenis_kelamin;
+    string kembangbiak;
+    string pernafasan;
+    string tempat_hidup;
+    bool karnivora;
+}; 
+
+struct hewan_darat{
+    hewan info_hewan;
+    int jumlah_kaki;
+    bool apakah_menyusui;
+    string suara;
+};
+hewan_darat hewan1;
+
+struct hewan_laut{
+    hewan info_hewan;
+    string bentuk_sirip;
+    string pertahanan_diri;
+};
+hewan_laut hewan2;
+
 int main() {
-    int maks, a, lokasi;
-    cout << "Masukkan panjang array: ";
-    cin >> a;
-    int array[a];
+    hewan1.info_hewan.nama_hewan = "Anjing";
+    hewan1.info_hewan.jenis_kelamin = "Laki-laki";
+    hewan1.info_hewan.kembangbiak = "Melahirkan";
+    hewan1.info_hewan.pernafasan = "Paru paru";
+    hewan1.info_hewan.tempat_hidup = "Darat";
+    hewan1.info_hewan.karnivora = true;
+    hewan1.jumlah_kaki = 4;
+    hewan1.apakah_menyusui = true;   
+    hewan1.suara = "Rawrr, guk, guk,guk";
+    
+    hewan2.info_hewan.nama_hewan = "Paus";
+    hewan2.info_hewan.jenis_kelamin = "Perempuan";
+    hewan2.info_hewan.kembangbiak = "Melahirkan";
+    hewan2.info_hewan.pernafasan = "paru paru";
+    hewan2.info_hewan.tempat_hidup = "Perairan (Laut)";
+    hewan2.info_hewan.karnivora = false;
+    hewan2.bentuk_sirip = "dosal, sabit, dan gumpalan";
+    hewan2.pertahanan_diri = " Menghirup Oksigen di udara";   
 
-    cout << "Masukkan " << a << " angka\n";
-    for (int i = 0; i < a; i++) {
-        cout << "Array ke-" << i << ": ";
-        cin >> array[i];
-    }
+	//menampilkan data 
+	cout << "\t Hewan Darat" << endl;
+	cout << "Nama Hewan :" <<hewan1.info_hewan.nama_hewan << endl;
+	cout << "Jenis Kelamin : "<<hewan1.info_hewan.jenis_kelamin << endl;
+	cout << "Kembangbiak : "<< hewan1.info_hewan.kembangbiak << endl;
+	cout << "Pernapasan : "<< hewan1.info_hewan.pernafasan << endl;
+	cout << "Tempat Hidup : "<< hewan1.info_hewan.tempat_hidup << endl;
+	cout << "karnivora : "<< hewan1.info_hewan.karnivora << endl;
+	cout << "jumlah kaki : "<< hewan1.jumlah_kaki << endl;
+	cout << "apakah menyusui?  : "<< hewan1.apakah_menyusui << endl;
+	cout << "suara : "<< hewan1.suara << "\n" << endl ;
 
-    maks = array[0];
-    lokasi = 0;  // Inisialisasi lokasi dengan indeks pertama
+	//menampilkan data 
+	cout << "\t Hewan Laut" << endl;
+	cout << "Nama Hewan :" <<hewan2.info_hewan.nama_hewan << endl;
+	cout << "Jenis Kelamin : "<<hewan2.info_hewan.jenis_kelamin << endl;
+	cout << "Kembangbiak : "<< hewan2.info_hewan.kembangbiak << endl;
+	cout << "Pernapasan : "<< hewan2.info_hewan.pernafasan << endl;
+	cout << "Tempat Hidup : "<< hewan2.info_hewan.tempat_hidup << endl;
+	cout << "apakah karnivora? "<< hewan2.info_hewan.karnivora << endl;
+	cout << "bentuk sirip : "<< hewan2.bentuk_sirip << endl;
+	cout << "pertahanan diri : "<< hewan2.pertahanan_diri << endl;
 
-    for (int i = 1; i < a; i++) {  // Mulai dari indeks ke-1 karena maks sudah diinisialisasi dengan array[0]
-        if (array[i] > maks) {
-            maks = array[i];
-            lokasi = i;
-        }
-    }
 
-    cout << "Nilai maksimum adalah " << maks << " berada di Array ke-" << lokasi << endl;
-
-    return 0;
-}
+	return 0;
+	}
 ```
 ## Output
-![Screenshot 2024-06-12 083334](https://github.com/yokaroo/Praktikum-Struktur-Data-Asignment-Modul2/blob/main/Screenshot%202024-06-12%20083334.png)
+![Screenshot 2024-06-12 232657](https://github.com/yokaroo/Praktikum-Algoritma-Struktur-Data-Asignment-Modul5/blob/main/Screenshot%202024-06-12%20232657.png)
 ## Interpretasi Code
-Kode tersebut adalah sebuah program C++ yang mencari nilai maksimum dalam sebuah array yang dimasukkan oleh pengguna. Program ini meminta pengguna untuk memasukkan panjang array dan kemudian mengisi array dengan angka-angka yang diinput oleh pengguna. Setelah array terisi, program mencari nilai maksimum dalam array tersebut dengan memulai perbandingan dari elemen kedua (indeks 1) hingga elemen terakhir. Jika ditemukan nilai yang lebih besar daripada nilai maksimum saat ini, nilai tersebut akan menjadi nilai maksimum yang baru, dan lokasinya (indeks) akan diperbarui. Akhirnya, program menampilkan nilai maksimum dan indeksnya kepada pengguna.
+Program tersebut mendemonstrasikan penggunaan struktur (struct) dalam C++. Dua jenis hewan, yaitu hewan darat dan hewan laut, direpresentasikan menggunakan struktur `hewan_darat` dan `hewan_laut`. Setiap jenis hewan memiliki beberapa atribut yang diorganisir dalam struktur, seperti nama hewan, jenis kelamin, kembangbiak, pernafasan, tempat hidup, dan atribut-atribut lain yang sesuai dengan sifat hewan tersebut.
+
+Setelah mendefinisikan struktur hewan darat dan hewan laut, program kemudian membuat dua variabel untuk masing-masing jenis hewan (`hewan1` dan `hewan2`). Setiap variabel tersebut memiliki atribut-atribut yang diisi dengan nilai sesuai dengan spesifikasi hewan yang ditentukan.
+
+Kemudian, program menampilkan informasi tentang kedua hewan tersebut ke layar menggunakan perintah `cout`. Informasi yang ditampilkan mencakup semua atribut yang dimiliki oleh hewan darat dan hewan laut, seperti nama hewan, jenis kelamin, kembangbiak, pernafasan, tempat hidup, jumlah kaki (untuk hewan darat), apakah menyusui (untuk hewan darat), bentuk sirip, dan pertahanan diri (untuk hewan laut).
+
+Dengan menggunakan struktur, program dapat menyimpan dan mengorganisir informasi tentang berbagai jenis hewan dengan cara yang terstruktur dan mudah dipahami.
 
 ### UnGuided
-## 1. Buatlah program untuk menampilkan output seperti berikut dengan data yang ditampilkan user
+## 1. Modifikasi tugas guided pertama, sehingga setiap item yang terdapat pada struct buku berupa array yang berukuran 5, isi dengan data kemudian tampilkan. 
 ```C++
-//Menggunakan library input/output dan struktur data
 #include <iostream>
-#include <sstream>
-#include <vector>
+#include <string>
+
 using namespace std;
 
-//Membuat kode inti atau main code
+struct Buku {
+    string judul_buku[5];
+    string pengarang[5];
+    string penerbit[5];
+    int tebal_buku[5];
+    double harga_buku[5];
+}; 
+
 int main() {
-    string name; // membuat variabel
-    //membuat vektor bertipe integer
-    vector<int> numbers;
-    vector<int> evenNumbers;
-    vector<int> oddNumbers;
-    
-    //meminta inputan
-    cout << "Masukkan nama Anda:" << endl;
-    getline(cin, name);
-    cout<<endl;
-    //Menyapa pengguna dan meminta inputan angka
-    cout<<"Halo, "<< name << ". Selamat datang di Program pemilihan angka genap dan ganjil." << endl<<endl;
-    cout << "Masukkan angka anda, pisahkan dengan spasi!" << endl;
-    cout << "Klik enter untuk menampilkan hasil !" << endl;
-    string input;
-    getline(cin, input);
-    
-    // Membaca angka-angka dari baris input
-    stringstream ss(input);
-    int num;
-    while (ss >> num) {
-        numbers.push_back(num);
+    Buku buku1, buku2;
+
+    // Mengisi data untuk buku1
+    buku1.judul_buku[0] = "TIME IS MONEY";
+    buku1.pengarang[0] = "Yokaro";
+    buku1.penerbit[0] = "Gudang Garam Jaya";
+    buku1.tebal_buku[0] = 515;
+    buku1.harga_buku[0] = 150000;
+
+    // Mengisi data untuk buku2
+    buku2.judul_buku[0] = "HOW TO FIGHT";
+    buku2.pengarang[0] = "Dani Wong";
+    buku2.penerbit[0] = "PT. KNTL MANIS";
+    buku2.tebal_buku[0] = 276;
+    buku2.harga_buku[0] = 200000;
+
+    // Menampilkan data untuk buku1
+    cout << "Informasi Buku 1" << endl;
+    for (int i = 0; i < 5; ++i) {
+        cout << "Judul : " << buku1.judul_buku[i] << endl;
+        cout << "Pengarang : " << buku1.pengarang[i] << endl;
+        cout << "Penerbit : " << buku1.penerbit[i] << endl;
+        cout << "Tebal Buku : " << buku1.tebal_buku[i] << endl;
+        cout << "Harga Buku : " << buku1.harga_buku[i] << endl;
+        cout << endl;
     }
-    
-    // Memisahkan angka genap dan ganjil dari inputan pengguna
-    for (int num : numbers) {
-        if (num % 2 == 0) { //menggunakan modulus
-            evenNumbers.push_back(num);  //jika habis di bagi 2 masuk ke sini
-        } else {
-            oddNumbers.push_back(num); //jika tidak habis masuk kesini
-        }
+
+    // Menampilkan data untuk buku2
+    cout << "Informasi Buku 2" << endl;
+    for (int i = 0; i < 5; ++i) {
+        cout << "Judul : " << buku2.judul_buku[i] << endl;
+        cout << "Pengarang : " << buku2.pengarang[i] << endl;
+        cout << "Penerbit : " << buku2.penerbit[i] << endl;
+        cout << "Tebal Buku : " << buku2.tebal_buku[i] << endl;
+        cout << "Harga Buku : " << buku2.harga_buku[i] << endl;
+        cout << endl;
     }
-    
-    // Menampilkan angka-angka genap
-    cout << "Angka genap: ";
-    for (int num : evenNumbers) {
-        cout << num << " ";
-    }
-    cout << endl;
-    
-    // Menampilkan angka-angka ganjil
-    cout << "Angka ganjil: ";
-    for (int num : oddNumbers) {
-        cout << num << " ";
-    }
-    cout << endl<<endl;
-    
+
     return 0;
 }
+
 ```
 ### Output
-![Screenshot 2024-06-12 094446](https://github.com/yokaroo/Praktikum-Struktur-Data-Asignment-Modul2/blob/main/Screenshot%202024-06-12%20094446.png)
+![Screenshot 2024-06-12 233121](https://github.com/yokaroo/Praktikum-Algoritma-Struktur-Data-Asignment-Modul5/blob/main/Screenshot%202024-06-12%20233121.png)
 
-## 2. Buatlah program Input array tiga dimensi (seperti pada guided) tetapi jumlah atau ukuran elemennya diinputkan oleh user!
-```C++
-#include <iostream>
-using namespace std;
+## 2.  Apa yang terjadi jika deklarasi variabel struct yang dibuat pada tugas guided I, berjenis Array. Bagaimana cara mengisi data dan menampilkannya ?
 
-int main() {
-    int x, y, z;
+Ketika sebuah struktur (struct) dideklarasikan dengan variabel yang merupakan array, maka setiap elemen array dalam struktur tersebut akan memiliki jumlah elemen sesuai dengan yang telah ditentukan dalam deklarasi array. Dalam kasus kode yang diberikan, struktur `Buku` memiliki lima elemen array untuk setiap atributnya, misalnya `judul_buku`, `pengarang`, `penerbit`, `tebal_buku`, dan `harga_buku`.
 
-    // Meminta pengguna untuk memasukkan ukuran array
-    cout << "Masukkan jumlah baris: ";
-    cin >> x;
-    cout << "Masukkan jumlah kolom: ";
-    cin >> y;
-    cout << "Masukkan jumlah depth: ";
-    cin >> z;
+Untuk mengisi data ke dalam struktur tersebut, Anda dapat menggunakan indeks dari setiap elemen array dan mengisinya dengan nilai yang diinginkan, seperti yang dilakukan dalam kode di atas dengan `buku1` dan `buku2`. Misalnya, `buku1.judul_buku[0]` digunakan untuk mengisi judul buku pertama, `buku1.pengarang[0]` untuk mengisi pengarang buku pertama, dan seterusnya.
 
-    // Deklarasi array tiga dimensi
-    int arr[x][y][z];
-
-    // Input elemen array
-    cout << "Masukkan elemen-elemen array:\n";
-    for (int i = 0; i < x; ++i) {
-        for (int j = 0; j < y; ++j) {
-            for (int k = 0; k < z; ++k) {
-                cout << "Array[" << i << "][" << j << "][" << k << "]: ";
-                cin >> arr[i][j][k];
-            }
-        }
-    }
-
-    // Output elemen array
-    cout << "\nElemen-elemen array yang dimasukkan:\n";
-    for (int i = 0; i < x; ++i) {
-        for (int j = 0; j < y; ++j) {
-            for (int k = 0; k < z; ++k) {
-                cout << "Array[" << i << "][" << j << "][" << k << "]: " << arr[i][j][k] << endl;
-            }
-        }
-    }
-
-    return 0;
-}
-
-```
-
-## Output
-![Screenshot 2024-06-12 094933.png](https://github.com/yokaroo/Praktikum-Struktur-Data-Asignment-Modul2/blob/main/Screenshot%202024-06-12%20094933.png)
-
-### 3.  Buatlah program menu untuk mencari nilai Maksimum, Minimum dan Nilai rata– rata dari suatu array dengan input yang dimasukan oleh user
-```C++
-#include <iostream>
-#include <climits> // Untuk menggunakan konstanta INT_MIN dan INT_MAX
-using namespace std;
-
-int main() {
-    int n;
-
-    // Meminta pengguna untuk memasukkan jumlah elemen array
-    cout << "Masukkan jumlah elemen array: ";
-    cin >> n;
-
-    // Membuat array untuk menyimpan elemen-elemen yang dimasukkan oleh pengguna
-    int arr[n];
-
-    // Meminta pengguna untuk memasukkan elemen-elemen array
-    cout << "Masukkan elemen-elemen array:\n";
-    for (int i = 0; i < n; ++i) {
-        cout << "Elemen " << i + 1 << ": ";
-        cin >> arr[i];
-    }
-
-    // Mencari nilai maksimum, minimum, dan rata-rata
-    int maksimum = INT_MIN;
-    int minimum = INT_MAX;
-    int total = 0;
-
-    for (int i = 0; i < n; ++i) {
-        if (arr[i] > maksimum) {
-            maksimum = arr[i];
-        }
-        if (arr[i] < minimum) {
-            minimum = arr[i];
-        }
-        total += arr[i];
-    }
-
-    double rata_rata = static_cast<double>(total) / n;
-
-    // Menampilkan hasil
-    cout << "\nNilai Maksimum: " << maksimum << endl;
-    cout << "Nilai Minimum: " << minimum << endl;
-    cout << "Nilai Rata-rata: " << rata_rata << endl;
-
-    return 0;
-}
-```
-## output
-![Screenshot 2024-06-12 095423](https://github.com/yokaroo/Praktikum-Struktur-Data-Asignment-Modul2/blob/main/Screenshot%202024-06-12%20095423.png)
+Untuk menampilkan data dari struktur yang memiliki variabel array, Anda dapat menggunakan loop, seperti `for` loop, untuk mengakses dan menampilkan setiap elemen array satu per satu, seperti yang dilakukan dalam kode di atas. Dengan menggunakan loop `for`, Anda dapat mengakses setiap elemen array menggunakan indeks dari 0 hingga jumlah elemen array minus 1, dan kemudian menampilkan nilainya.
 
 ### Kesimpulan 
 Dengan pemahaman tentang berbagai jenis array ini, kita dapat lebih efektif menggunakan dan memahami struktur data yang kompleks dan penggunaannya dalam pemrograman. Array merupakan fondasi yang penting dalam mempelajari struktur data lainnya dan memiliki peran yang krusial dalam pengembangan perangkat lunak.
